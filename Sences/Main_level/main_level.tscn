@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://duk4lw7h4m268"]
 
-[ext_resource type="Texture2D" uid="uid://cuxaen5f7ch2h" path="res://Assets/PNG/HUD/crosshair_blue_small.png" id="1_3bsrl"]
+[ext_resource type="PackedScene" uid="uid://beei5hfmy1wrw" path="res://Sences/Targets/targets.tscn" id="1_3bsrl"]
 
 [node name="Main_level" type="Node2D"]
 
-[node name="CrosshairBlueSmall" type="Sprite2D" parent="."]
-position = Vector2(218, 158)
-texture = ExtResource("1_3bsrl")
+[node name="Targets" parent="." instance=ExtResource("1_3bsrl")]
+position = Vector2(183, 398)
