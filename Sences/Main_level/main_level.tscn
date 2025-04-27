@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://duk4lw7h4m268"]
+[gd_scene load_steps=2 format=3 uid="uid://duk4lw7h4m268"]
+
+[ext_resource type="Texture2D" uid="uid://cuxaen5f7ch2h" path="res://Assets/PNG/HUD/crosshair_blue_small.png" id="1_3bsrl"]
 
 [node name="Main_level" type="Node2D"]
+
+[node name="CrosshairBlueSmall" type="Sprite2D" parent="."]
+position = Vector2(552, 275)
+texture = ExtResource("1_3bsrl")
