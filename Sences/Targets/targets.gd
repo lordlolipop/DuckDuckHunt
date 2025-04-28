@@ -19,3 +19,4 @@ func _process(delta: float) -> void:
 	if position.x > get_viewport_rect().size.x + 100:
 		print ("out of view")
 		queue_free()
+ 

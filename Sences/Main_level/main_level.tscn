@@ -1,8 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://duk4lw7h4m268"]
 
-[ext_resource type="PackedScene" uid="uid://beei5hfmy1wrw" path="res://Sences/Targets/targets.tscn" id="1_3bsrl"]
+[ext_resource type="PackedScene" uid="uid://3bhfc6unw6xw" path="res://Sences/target_spawner.tscn" id="1_71bqw"]
 
 [node name="Main_level" type="Node2D"]
 
-[node name="Targets" parent="." instance=ExtResource("1_3bsrl")]
-position = Vector2(183, 398)
+[node name="Target_Spawner" parent="." instance=ExtResource("1_71bqw")]
