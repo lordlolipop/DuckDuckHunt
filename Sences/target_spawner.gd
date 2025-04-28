@@ -15,7 +15,7 @@ func spawn_targets():
 	add_child(target_instance)
 	
 	var target_position = Vector2()
-	target_position.y = randi_range(220, 400)
+	target_position.y = randi_range(150, 330)
 	target_position.x = randi_range(0, get_viewport_rect().size.x)
 	
 	target_instance.position = target_position

@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://duk4lw7h4m268"]
+[gd_scene load_steps=10 format=3 uid="uid://duk4lw7h4m268"]
 
 [ext_resource type="PackedScene" uid="uid://3bhfc6unw6xw" path="res://Sences/target_spawner.tscn" id="1_71bqw"]
 [ext_resource type="Script" uid="uid://dfm85vx5s7wdi" path="res://Sences/Main_level/score.gd" id="2_71bqw"]
+[ext_resource type="Texture2D" uid="uid://dt0qonl0lnwvp" path="res://Assets/PNG/Stall/grass2.png" id="2_eqeco"]
 [ext_resource type="Script" uid="uid://cgclu482hkn8y" path="res://Sences/Main_level/helth.gd" id="3_5q0sq"]
+[ext_resource type="Texture2D" uid="uid://dsfqtil4qvsau" path="res://Assets/PNG/Stall/grass1.png" id="3_mb21o"]
 [ext_resource type="Texture2D" uid="uid://bkdecnu1j35qs" path="res://Assets/PNG/Stall/bg_wood.png" id="4_s2w28"]
 [ext_resource type="Texture2D" uid="uid://vyk8u31cj8pw" path="res://Assets/PNG/Stall/curtain_top.png" id="5_xywcn"]
 [ext_resource type="Texture2D" uid="uid://b6lf7yox8lspp" path="res://Assets/PNG/Stall/curtain.png" id="6_eqeco"]
@@ -44,54 +46,35 @@ texture = ExtResource("4_s2w28")
 position = Vector2(390, 158)
 texture = ExtResource("4_s2w28")
 
-[node name="CurtainTop" type="Sprite2D" parent="backround"]
-position = Vector2(83, 75)
-texture = ExtResource("5_xywcn")
+[node name="GrassLain" type="CanvasGroup" parent="."]
 
-[node name="CurtainTop2" type="Sprite2D" parent="backround"]
-position = Vector2(387, 63)
-texture = ExtResource("5_xywcn")
+[node name="Grass2" type="Sprite2D" parent="GrassLain"]
+position = Vector2(63, 315)
+texture = ExtResource("2_eqeco")
 
-[node name="CurtainTop3" type="Sprite2D" parent="backround"]
-position = Vector2(529, 90)
-texture = ExtResource("5_xywcn")
+[node name="Grass4" type="Sprite2D" parent="GrassLain"]
+position = Vector2(448, 319)
+texture = ExtResource("2_eqeco")
 
-[node name="CurtainTop4" type="Sprite2D" parent="backround"]
-position = Vector2(680, 79)
-texture = ExtResource("5_xywcn")
+[node name="Grass5" type="Sprite2D" parent="GrassLain"]
+position = Vector2(574, 321)
+texture = ExtResource("2_eqeco")
 
-[node name="CurtainTop5" type="Sprite2D" parent="backround"]
-position = Vector2(805, 84)
-texture = ExtResource("5_xywcn")
+[node name="Grass7" type="Sprite2D" parent="GrassLain"]
+position = Vector2(826, 325)
+texture = ExtResource("2_eqeco")
 
-[node name="CurtainTop6" type="Sprite2D" parent="backround"]
-position = Vector2(261, 87)
-texture = ExtResource("5_xywcn")
+[node name="Grass1" type="Sprite2D" parent="GrassLain"]
+position = Vector2(192, 323)
+texture = ExtResource("3_mb21o")
 
-[node name="Curtain" type="Sprite2D" parent="backround"]
-position = Vector2(59, 225)
-texture = ExtResource("6_eqeco")
+[node name="Grass6" type="Sprite2D" parent="GrassLain"]
+position = Vector2(699, 331)
+texture = ExtResource("3_mb21o")
 
-[node name="Curtain2" type="Sprite2D" parent="backround"]
-position = Vector2(796, 225)
-texture = ExtResource("6_eqeco")
-flip_h = true
-
-[node name="CurtainStraight" type="Sprite2D" parent="backround"]
-position = Vector2(96, 31)
-texture = ExtResource("7_mb21o")
-
-[node name="CurtainStraight4" type="Sprite2D" parent="backround"]
-position = Vector2(861, 33)
-texture = ExtResource("7_mb21o")
-
-[node name="CurtainStraight2" type="Sprite2D" parent="backround"]
-position = Vector2(606, 32)
-texture = ExtResource("7_mb21o")
-
-[node name="CurtainStraight3" type="Sprite2D" parent="backround"]
-position = Vector2(352, 32)
-texture = ExtResource("7_mb21o")
+[node name="Grass3" type="Sprite2D" parent="GrassLain"]
+position = Vector2(322, 324)
+texture = ExtResource("3_mb21o")
 
 [node name="Target_Spawner" parent="." instance=ExtResource("1_71bqw")]
 
@@ -113,3 +96,54 @@ script = ExtResource("2_71bqw")
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("3_5q0sq")
+
+[node name="Curtains" type="CanvasGroup" parent="."]
+
+[node name="CurtainTop" type="Sprite2D" parent="Curtains"]
+position = Vector2(83, 75)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop2" type="Sprite2D" parent="Curtains"]
+position = Vector2(387, 63)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop3" type="Sprite2D" parent="Curtains"]
+position = Vector2(529, 90)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop4" type="Sprite2D" parent="Curtains"]
+position = Vector2(680, 79)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop5" type="Sprite2D" parent="Curtains"]
+position = Vector2(805, 84)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop6" type="Sprite2D" parent="Curtains"]
+position = Vector2(261, 87)
+texture = ExtResource("5_xywcn")
+
+[node name="Curtain" type="Sprite2D" parent="Curtains"]
+position = Vector2(59, 225)
+texture = ExtResource("6_eqeco")
+
+[node name="Curtain2" type="Sprite2D" parent="Curtains"]
+position = Vector2(796, 225)
+texture = ExtResource("6_eqeco")
+flip_h = true
+
+[node name="CurtainStraight" type="Sprite2D" parent="Curtains"]
+position = Vector2(96, 31)
+texture = ExtResource("7_mb21o")
+
+[node name="CurtainStraight4" type="Sprite2D" parent="Curtains"]
+position = Vector2(861, 33)
+texture = ExtResource("7_mb21o")
+
+[node name="CurtainStraight2" type="Sprite2D" parent="Curtains"]
+position = Vector2(606, 32)
+texture = ExtResource("7_mb21o")
+
+[node name="CurtainStraight3" type="Sprite2D" parent="Curtains"]
+position = Vector2(352, 32)
+texture = ExtResource("7_mb21o")
