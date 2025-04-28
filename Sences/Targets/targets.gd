@@ -33,7 +33,7 @@ func _ready() -> void:
 			stike.position.y += -20 
 		2: 
 			$Sprite2D.texture = sptites[2]
-			$Sprite2D.scale = Vector2(0.32, 0.32)
+			$Sprite2D.scale = Vector2(0.31, 0.31)
 			score_value = 5
 
 

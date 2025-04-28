@@ -1,10 +1,97 @@
-[gd_scene load_steps=4 format=3 uid="uid://duk4lw7h4m268"]
+[gd_scene load_steps=8 format=3 uid="uid://duk4lw7h4m268"]
 
 [ext_resource type="PackedScene" uid="uid://3bhfc6unw6xw" path="res://Sences/target_spawner.tscn" id="1_71bqw"]
 [ext_resource type="Script" uid="uid://dfm85vx5s7wdi" path="res://Sences/Main_level/score.gd" id="2_71bqw"]
 [ext_resource type="Script" uid="uid://cgclu482hkn8y" path="res://Sences/Main_level/helth.gd" id="3_5q0sq"]
+[ext_resource type="Texture2D" uid="uid://bkdecnu1j35qs" path="res://Assets/PNG/Stall/bg_wood.png" id="4_s2w28"]
+[ext_resource type="Texture2D" uid="uid://vyk8u31cj8pw" path="res://Assets/PNG/Stall/curtain_top.png" id="5_xywcn"]
+[ext_resource type="Texture2D" uid="uid://b6lf7yox8lspp" path="res://Assets/PNG/Stall/curtain.png" id="6_eqeco"]
+[ext_resource type="Texture2D" uid="uid://deuwydtwbwmtb" path="res://Assets/PNG/Stall/curtain_straight.png" id="7_mb21o"]
 
 [node name="Main_level" type="Node2D"]
+
+[node name="backround" type="CanvasGroup" parent="."]
+
+[node name="BgWood" type="Sprite2D" parent="backround"]
+position = Vector2(135, 157)
+texture = ExtResource("4_s2w28")
+
+[node name="BgWood5" type="Sprite2D" parent="backround"]
+position = Vector2(417, 288)
+texture = ExtResource("4_s2w28")
+
+[node name="BgWood6" type="Sprite2D" parent="backround"]
+position = Vector2(247, 240)
+texture = ExtResource("4_s2w28")
+
+[node name="BgWood7" type="Sprite2D" parent="backround"]
+position = Vector2(110, 316)
+texture = ExtResource("4_s2w28")
+
+[node name="BgWood8" type="Sprite2D" parent="backround"]
+position = Vector2(715, 316)
+texture = ExtResource("4_s2w28")
+
+[node name="BgWood2" type="Sprite2D" parent="backround"]
+position = Vector2(852, 154)
+texture = ExtResource("4_s2w28")
+
+[node name="BgWood3" type="Sprite2D" parent="backround"]
+position = Vector2(627, 173)
+texture = ExtResource("4_s2w28")
+
+[node name="BgWood4" type="Sprite2D" parent="backround"]
+position = Vector2(390, 158)
+texture = ExtResource("4_s2w28")
+
+[node name="CurtainTop" type="Sprite2D" parent="backround"]
+position = Vector2(83, 75)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop2" type="Sprite2D" parent="backround"]
+position = Vector2(387, 63)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop3" type="Sprite2D" parent="backround"]
+position = Vector2(529, 90)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop4" type="Sprite2D" parent="backround"]
+position = Vector2(680, 79)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop5" type="Sprite2D" parent="backround"]
+position = Vector2(805, 84)
+texture = ExtResource("5_xywcn")
+
+[node name="CurtainTop6" type="Sprite2D" parent="backround"]
+position = Vector2(261, 87)
+texture = ExtResource("5_xywcn")
+
+[node name="Curtain" type="Sprite2D" parent="backround"]
+position = Vector2(59, 225)
+texture = ExtResource("6_eqeco")
+
+[node name="Curtain2" type="Sprite2D" parent="backround"]
+position = Vector2(796, 225)
+texture = ExtResource("6_eqeco")
+flip_h = true
+
+[node name="CurtainStraight" type="Sprite2D" parent="backround"]
+position = Vector2(96, 31)
+texture = ExtResource("7_mb21o")
+
+[node name="CurtainStraight4" type="Sprite2D" parent="backround"]
+position = Vector2(861, 33)
+texture = ExtResource("7_mb21o")
+
+[node name="CurtainStraight2" type="Sprite2D" parent="backround"]
+position = Vector2(606, 32)
+texture = ExtResource("7_mb21o")
+
+[node name="CurtainStraight3" type="Sprite2D" parent="backround"]
+position = Vector2(352, 32)
+texture = ExtResource("7_mb21o")
 
 [node name="Target_Spawner" parent="." instance=ExtResource("1_71bqw")]
 
