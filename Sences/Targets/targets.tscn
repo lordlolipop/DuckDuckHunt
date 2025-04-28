@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://beei5hfmy1wrw"]
+[gd_scene load_steps=5 format=3 uid="uid://beei5hfmy1wrw"]
 
 [ext_resource type="Script" uid="uid://cu81u36516mj7" path="res://Sences/Targets/targets.gd" id="1_l8c2i"]
-[ext_resource type="Texture2D" uid="uid://d12is1r51x2en" path="res://Assets/PNG/Objects/target_red2_outline.png" id="2_a525t"]
+[ext_resource type="Texture2D" uid="uid://bdxigmte87ea8" path="res://Assets/PNG/Objects/stick_wood_outline.png" id="2_xm0lx"]
+[ext_resource type="Texture2D" uid="uid://cojlv86n2kemb" path="res://Assets/PNG/Objects/target_red3_outline.png" id="3_xm0lx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a525t"]
 radius = 72.0278
@@ -11,8 +12,12 @@ script = ExtResource("1_l8c2i")
 minimum_speed = 50
 maximum_speed = 400
 
+[node name="StickWoodFixedOutline" type="Sprite2D" parent="."]
+position = Vector2(-1, 125)
+texture = ExtResource("2_xm0lx")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_a525t")
+texture = ExtResource("3_xm0lx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a525t")

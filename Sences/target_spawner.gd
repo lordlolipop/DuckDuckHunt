@@ -8,16 +8,21 @@ extends Node2D
 
 
 
-func spwan_targets():
-	timer.wait_time = randf_range(0.4, 5)
-	timer.start()
+func spawn_targets():
+	timer.wait_time = randf_range(0.4, 1)
 
-	var _target_instenc = targets.instantiate()
-	add_child(_target_instenc)
-	var target_positon = Vector2(0,0)
-	target_positon.y = randi_range(220, 400)
-	_target_instenc.position = target_positon
+	var target_instance = targets.instantiate()
+	add_child(target_instance)
+	
+	var target_position = Vector2()
+	target_position.y = randi_range(220, 400)
+	target_position.x = randi_range(0, get_viewport_rect().size.x)
+	
+	target_instance.position = target_position
+	target_instance.starting_pos = target_position
+	if target_instance.position.x > get_viewport_rect().size.x / 2:
+		target_instance.sprite_2d.flip_h = true
 
 
 func _on_timer_timeout() -> void:
-	spwan_targets()
+	spawn_targets()
