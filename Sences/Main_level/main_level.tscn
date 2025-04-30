@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://duk4lw7h4m268"]
+[gd_scene load_steps=13 format=3 uid="uid://duk4lw7h4m268"]
 
 [ext_resource type="PackedScene" uid="uid://3bhfc6unw6xw" path="res://Sences/target_spawner.tscn" id="1_71bqw"]
 [ext_resource type="Script" uid="uid://dfm85vx5s7wdi" path="res://Sences/Main_level/score.gd" id="2_71bqw"]
@@ -9,10 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://vyk8u31cj8pw" path="res://Assets/PNG/Stall/curtain_top.png" id="5_xywcn"]
 [ext_resource type="Texture2D" uid="uid://b6lf7yox8lspp" path="res://Assets/PNG/Stall/curtain.png" id="6_eqeco"]
 [ext_resource type="Texture2D" uid="uid://deuwydtwbwmtb" path="res://Assets/PNG/Stall/curtain_straight.png" id="7_mb21o"]
+[ext_resource type="Texture2D" uid="uid://bqc6h6nmoa21b" path="res://Assets/Sample.png" id="10_mb21o"]
+[ext_resource type="Texture2D" uid="uid://c6pwu1h0sfpjb" path="res://Assets/PNG/Stall/curtain_rope.png" id="11_4yvw5"]
+[ext_resource type="Texture2D" uid="uid://5laem7y2uiv3" path="res://Assets/PNG/HUD/text_score_small.png" id="12_mcwy2"]
 
 [node name="Main_level" type="Node2D"]
 
 [node name="backround" type="CanvasGroup" parent="."]
+scale = Vector2(1.6, 1.6)
 
 [node name="BgWood" type="Sprite2D" parent="backround"]
 position = Vector2(135, 157)
@@ -35,7 +39,7 @@ position = Vector2(715, 316)
 texture = ExtResource("4_s2w28")
 
 [node name="BgWood2" type="Sprite2D" parent="backround"]
-position = Vector2(852, 154)
+position = Vector2(862, 86)
 texture = ExtResource("4_s2w28")
 
 [node name="BgWood3" type="Sprite2D" parent="backround"]
@@ -46,7 +50,46 @@ texture = ExtResource("4_s2w28")
 position = Vector2(390, 158)
 texture = ExtResource("4_s2w28")
 
+[node name="Target_Spawner2" parent="." instance=ExtResource("1_71bqw")]
+scale = Vector2(1.6, 1.6)
+y_pos = 150
+scalemultiplayer = Vector2(0.7, 0.7)
+
+[node name="GrassLain2" type="CanvasGroup" parent="."]
+position = Vector2(-224, -3)
+scale = Vector2(1.6, 1.6)
+
+[node name="Grass4" type="Sprite2D" parent="GrassLain2"]
+position = Vector2(448, 319)
+texture = ExtResource("2_eqeco")
+
+[node name="Grass5" type="Sprite2D" parent="GrassLain2"]
+position = Vector2(574, 321)
+texture = ExtResource("2_eqeco")
+
+[node name="Grass7" type="Sprite2D" parent="GrassLain2"]
+position = Vector2(826, 325)
+texture = ExtResource("2_eqeco")
+
+[node name="Grass1" type="Sprite2D" parent="GrassLain2"]
+position = Vector2(192, 323)
+texture = ExtResource("3_mb21o")
+
+[node name="Grass6" type="Sprite2D" parent="GrassLain2"]
+position = Vector2(699, 331)
+texture = ExtResource("3_mb21o")
+
+[node name="Grass8" type="Sprite2D" parent="GrassLain2"]
+position = Vector2(956.875, 332.5)
+texture = ExtResource("3_mb21o")
+
+[node name="Grass3" type="Sprite2D" parent="GrassLain2"]
+position = Vector2(322, 324)
+texture = ExtResource("3_mb21o")
+
 [node name="GrassLain" type="CanvasGroup" parent="."]
+position = Vector2(-44, 71)
+scale = Vector2(1.6, 1.6)
 
 [node name="Grass2" type="Sprite2D" parent="GrassLain"]
 position = Vector2(63, 315)
@@ -77,50 +120,63 @@ position = Vector2(322, 324)
 texture = ExtResource("3_mb21o")
 
 [node name="Target_Spawner" parent="." instance=ExtResource("1_71bqw")]
-
-[node name="Score" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 517.0
-offset_top = 3.0
-offset_right = 695.0
-offset_bottom = 53.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_71bqw")
-
-[node name="helth" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("3_5q0sq")
+scale = Vector2(1.6, 1.6)
 
 [node name="Curtains" type="CanvasGroup" parent="."]
+scale = Vector2(1.6, 1.6)
+
+[node name="ColorRect3" type="ColorRect" parent="Curtains"]
+offset_left = -15.0
+offset_top = 391.0
+offset_right = 25.0
+offset_bottom = 431.0
+scale = Vector2(21.658, 1.59003)
+color = Color(0.65098, 0.443137, 0.235294, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Curtains"]
+offset_left = -12.0
+offset_top = 427.0
+offset_right = 28.0
+offset_bottom = 467.0
+scale = Vector2(21.658, 1.59003)
+color = Color(0.705882, 0.482353, 0.258824, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Curtains"]
+offset_left = -7.0
+offset_top = 357.0
+offset_right = 33.0
+offset_bottom = 397.0
+scale = Vector2(21.658, 1.59003)
+color = Color(0.768627, 0.537255, 0.301961, 1)
 
 [node name="CurtainTop" type="Sprite2D" parent="Curtains"]
-position = Vector2(83, 75)
+position = Vector2(96.25, 71.25)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_xywcn")
 
 [node name="CurtainTop2" type="Sprite2D" parent="Curtains"]
-position = Vector2(387, 63)
+position = Vector2(352.75, 48)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_xywcn")
 
 [node name="CurtainTop3" type="Sprite2D" parent="Curtains"]
-position = Vector2(529, 90)
+position = Vector2(494.75, 75)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_xywcn")
 
 [node name="CurtainTop4" type="Sprite2D" parent="Curtains"]
-position = Vector2(680, 79)
+position = Vector2(645.75, 64)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_xywcn")
 
 [node name="CurtainTop5" type="Sprite2D" parent="Curtains"]
-position = Vector2(805, 84)
+position = Vector2(770.75, 69)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_xywcn")
 
 [node name="CurtainTop6" type="Sprite2D" parent="Curtains"]
-position = Vector2(261, 87)
+position = Vector2(226.75, 72)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_xywcn")
 
 [node name="Curtain" type="Sprite2D" parent="Curtains"]
@@ -128,7 +184,7 @@ position = Vector2(59, 225)
 texture = ExtResource("6_eqeco")
 
 [node name="Curtain2" type="Sprite2D" parent="Curtains"]
-position = Vector2(796, 225)
+position = Vector2(747.5, 227.5)
 texture = ExtResource("6_eqeco")
 flip_h = true
 
@@ -147,3 +203,40 @@ texture = ExtResource("7_mb21o")
 [node name="CurtainStraight3" type="Sprite2D" parent="Curtains"]
 position = Vector2(352, 32)
 texture = ExtResource("7_mb21o")
+
+[node name="Sample" type="Sprite2D" parent="Curtains"]
+position = Vector2(1990, 321)
+texture = ExtResource("10_mb21o")
+
+[node name="CurtainRope" type="Sprite2D" parent="Curtains"]
+position = Vector2(7, 227)
+texture = ExtResource("11_4yvw5")
+
+[node name="CurtainRope2" type="Sprite2D" parent="Curtains"]
+position = Vector2(799.375, 228.125)
+texture = ExtResource("11_4yvw5")
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 586.0
+offset_top = 19.0
+offset_right = 764.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6, 1.6)
+script = ExtResource("2_71bqw")
+
+[node name="helth" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(1.6, 1.6)
+script = ExtResource("3_5q0sq")
+
+[node name="TextScoreSmall" type="Sprite2D" parent="."]
+position = Vector2(520, 29)
+texture = ExtResource("12_mcwy2")

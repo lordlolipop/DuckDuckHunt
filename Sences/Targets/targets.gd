@@ -1,14 +1,15 @@
 extends Area2D
 
 
-@export_enum ("target", "duck", "bad_duck") var target_type: int
+@export_enum ("target", "duck", "bad_duck", "under_cover_bad_duck") var target_type: int
 
 @export var minimum_speed: int = 100
 @export var maximum_speed: int = 500
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var BadDuckTimer: Timer = $BadDuckTimer
 
 
-var sptites: = [preload("res://Assets/PNG/Objects/target_red3_outline.png"),
+var sprites: = [preload("res://Assets/PNG/Objects/target_red3_outline.png"),
 preload("res://Assets/PNG/Objects/duck_outline_yellow.png"),
 preload("res://Assets/PNG/Objects/bad_duck.png")
 ]
@@ -21,25 +22,34 @@ var damege:= 1
 
 
 func _ready() -> void:
-	target_type = randi_range(0,2)
+	target_type = randi_range(0,3)
+	starting_pos = position
 	match target_type:
 		0:
 			score_value = 1
-			$Sprite2D.texture = sptites[0]
+			$Sprite2D.texture = sprites[0]
 		1: 
 			score_value = 0
-			$Sprite2D.texture = sptites[1]
+			$Sprite2D.texture = sprites[1]
 			var stike = get_node("StickWoodFixedOutline")
 			stike.position.y += -20 
 		2: 
-			$Sprite2D.texture = sptites[2]
+			$Sprite2D.texture = sprites[2]
 			$Sprite2D.scale = Vector2(0.31, 0.31)
-			score_value = 5
-
+			score_value = 1
+		3:
+			$Sprite2D.texture = sprites[1]
+			BadDuckTimer.one_shot = true
+			BadDuckTimer.wait_time = randf_range(0.7, 4)
+			BadDuckTimer.start()
+			var stike = get_node("StickWoodFixedOutline")
+			stike.position.y += -20 
+			
+		
 
 
 func _process(delta: float) -> void:
-	movment_handel(delta)
+	movement_handle(delta)
 	if position.x > get_viewport_rect().size.x + 100 or position.x < -50:
 		print ("out of view")
 		queue_free()
@@ -61,10 +71,24 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_index: int):
 
 
 
-func movment_handel(delta):
-	if starting_pos.x < get_viewport_rect().size.x / 2:
-		position.x += speed * delta 
+func movement_handle(delta):
+	if target_type == 3:
+		if BadDuckTimer.time_left > 0:
+			if starting_pos.x <= get_viewport_rect().size.x / 2:
+				position.x += speed * delta
+			else:
+				position.x -= speed * delta
+		# else: do nothing, duck stops
 	else:
-		position.x += speed * delta * -1
-	print(starting_pos)
+		if starting_pos.x <= 640:
+			position.x += speed * delta
+		else:
+			position.x -= speed * delta
+
+
   
+
+
+func _on_bad_duck_timer_timeout() -> void:
+	sprite_2d.texture = sprites[2]
+	sprite_2d.scale = Vector2(0.31, 0.31)

@@ -21,3 +21,7 @@ texture = ExtResource("3_xm0lx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a525t")
+
+[node name="BadDuckTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="BadDuckTimer" to="." method="_on_bad_duck_timer_timeout"]
