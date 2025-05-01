@@ -96,16 +96,22 @@ func movement_handle(delta):
 func _on_bad_duck_timer_timeout() -> void:
 	sprite_2d.texture = sprites[2]
 	sprite_2d.scale = Vector2(0.31, 0.31)
-	ttk_timer.start(randf_range(2, 5))
+	ttk_timer.start(randf_range(2, 4))
 	shoot_mark.visible = true
 	var tween = create_tween()
+	var original_scale = sprite_2d.scale
+	tween.tween_property(sprite_2d, "scale", Vector2(1.2,1.2), 0.1)
+	tween.tween_property(sprite_2d, "scale", original_scale, 0.1)
+	
+	var _ttk_tween = create_tween()
 	for x in ttk_timer.time_left:
-		tween.tween_property(shoot_mark, "scale", Vector2(1.2,1.2), 0.4)
-		tween.tween_property(shoot_mark, "modulate", Color.RED, 0.3)
-		tween.tween_property(shoot_mark, "scale", Vector2(1.6,1.6), 0.4)
-		tween.tween_property(shoot_mark, "modulate", Color.WHITE_SMOKE, 0.3)
+		_ttk_tween.tween_property(shoot_mark, "scale", Vector2(1.2,1.2), 0.4)
+		_ttk_tween.tween_property(shoot_mark, "modulate", Color.RED, 0.3)
+		_ttk_tween.tween_property(shoot_mark, "scale", Vector2(1.6,1.6), 0.4)
+		_ttk_tween.tween_property(shoot_mark, "modulate", Color.WHITE_SMOKE, 0.3)
 
 	
 func _on_ttk_timer_timeout() -> void:
+
 	Global.health -= damege
 	queue_free()
