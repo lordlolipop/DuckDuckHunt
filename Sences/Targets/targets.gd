@@ -7,6 +7,8 @@ extends Area2D
 @export var maximum_speed: int = 500
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var BadDuckTimer: Timer = $BadDuckTimer
+@onready var ttk_timer: Timer = $TTKTimer
+
 
 
 var sprites: = [preload("res://Assets/PNG/Objects/target_red3_outline.png"),
@@ -22,6 +24,7 @@ var damege:= 1
 
 
 func _ready() -> void:
+	randomize()
 	target_type = randi_range(0,3)
 	starting_pos = position
 	match target_type:
@@ -37,6 +40,8 @@ func _ready() -> void:
 			$Sprite2D.texture = sprites[2]
 			$Sprite2D.scale = Vector2(0.31, 0.31)
 			score_value = 1
+			ttk_timer.start(randi_range(2, 5))
+
 		3:
 			$Sprite2D.texture = sprites[1]
 			BadDuckTimer.one_shot = true
@@ -63,7 +68,7 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_index: int):
 	)
 	
 	if event_is_mouse_click:
-		if target_type == 1:
+		if target_type == 1 :
 			Global.health -= damege
 			
 		queue_free()
@@ -85,10 +90,16 @@ func movement_handle(delta):
 		else:
 			position.x -= speed * delta
 
-
-  
+	
 
 
 func _on_bad_duck_timer_timeout() -> void:
 	sprite_2d.texture = sprites[2]
 	sprite_2d.scale = Vector2(0.31, 0.31)
+	ttk_timer.start(randf_range(0.8, 2))
+
+
+
+func _on_ttk_timer_timeout() -> void:
+	Global.health -= 1
+	queue_free()
