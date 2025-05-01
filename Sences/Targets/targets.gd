@@ -8,6 +8,7 @@ extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var BadDuckTimer: Timer = $BadDuckTimer
 @onready var ttk_timer: Timer = $TTKTimer
+@onready var shoot_mark: Sprite2D = $ShootMark
 
 
 
@@ -68,9 +69,8 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_index: int):
 	)
 	
 	if event_is_mouse_click:
-		if target_type == 1 :
+		if target_type == 1:
 			Global.health -= damege
-			
 		queue_free()
 		Global.score += score_value
 
@@ -96,10 +96,16 @@ func movement_handle(delta):
 func _on_bad_duck_timer_timeout() -> void:
 	sprite_2d.texture = sprites[2]
 	sprite_2d.scale = Vector2(0.31, 0.31)
-	ttk_timer.start(randf_range(0.8, 2))
+	ttk_timer.start(randf_range(2, 5))
+	shoot_mark.visible = true
+	var tween = create_tween()
+	for x in ttk_timer.time_left:
+		tween.tween_property(shoot_mark, "scale", Vector2(1.2,1.2), 0.4)
+		tween.tween_property(shoot_mark, "modulate", Color.RED, 0.3)
+		tween.tween_property(shoot_mark, "scale", Vector2(1.6,1.6), 0.4)
+		tween.tween_property(shoot_mark, "modulate", Color.WHITE_SMOKE, 0.3)
 
-
-
+	
 func _on_ttk_timer_timeout() -> void:
-	Global.health -= 1
+	Global.health -= damege
 	queue_free()
