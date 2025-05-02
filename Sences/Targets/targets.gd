@@ -41,7 +41,7 @@ func _ready() -> void:
 			$Sprite2D.texture = sprites[2]
 			$Sprite2D.scale = Vector2(0.31, 0.31)
 			score_value = 1
-			ttk_timer.start(randi_range(2, 5))
+			ttk_timer.start(randf_range(3.4, 5))
 
 		3:
 			$Sprite2D.texture = sprites[1]
@@ -56,8 +56,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	movement_handle(delta)
-	if position.x > get_viewport_rect().size.x + 100 or position.x < -50:
-		print ("out of view")
+	if position.x > get_viewport_rect().size.x + 50 or position.x < -50:
+		if ttk_timer:
+			ttk_timer.stop()
 		queue_free()
 
 
@@ -71,6 +72,7 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_index: int):
 	if event_is_mouse_click:
 		if target_type == 1:
 			Global.health -= damege
+			print("dmg on hiting duck")
 		queue_free()
 		Global.score += score_value
 
@@ -96,7 +98,8 @@ func movement_handle(delta):
 func _on_bad_duck_timer_timeout() -> void:
 	sprite_2d.texture = sprites[2]
 	sprite_2d.scale = Vector2(0.31, 0.31)
-	ttk_timer.start(randf_range(2, 4))
+	ttk_timer.start(randf_range(1, 3))
+	print("TTK TIMER STARTED")
 	shoot_mark.visible = true
 	var tween = create_tween()
 	var original_scale = sprite_2d.scale
@@ -112,6 +115,6 @@ func _on_bad_duck_timer_timeout() -> void:
 
 	
 func _on_ttk_timer_timeout() -> void:
-
-	Global.health -= damege
-	queue_free()
+		Global.health -= damege
+		queue_free()
+		print("dmg")

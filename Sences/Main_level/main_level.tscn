@@ -229,12 +229,14 @@ offset_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.6, 1.6)
+theme_override_font_sizes/font_size = 10
 script = ExtResource("2_71bqw")
 
 [node name="helth" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 scale = Vector2(1.6, 1.6)
+theme_override_font_sizes/font_size = 10
 script = ExtResource("3_5q0sq")
 
 [node name="TextScoreSmall" type="Sprite2D" parent="."]
