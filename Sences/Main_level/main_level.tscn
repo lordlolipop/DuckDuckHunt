@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b6lf7yox8lspp" path="res://Assets/PNG/Stall/curtain.png" id="6_eqeco"]
 [ext_resource type="Texture2D" uid="uid://deuwydtwbwmtb" path="res://Assets/PNG/Stall/curtain_straight.png" id="7_mb21o"]
 [ext_resource type="Texture2D" uid="uid://bqc6h6nmoa21b" path="res://Assets/Sample.png" id="10_mb21o"]
+[ext_resource type="Theme" uid="uid://rojwetiqfdcx" path="res://new_theme.tres" id="10_mcwy2"]
 [ext_resource type="Texture2D" uid="uid://c6pwu1h0sfpjb" path="res://Assets/PNG/Stall/curtain_rope.png" id="11_4yvw5"]
-[ext_resource type="Texture2D" uid="uid://5laem7y2uiv3" path="res://Assets/PNG/HUD/text_score_small.png" id="12_mcwy2"]
 
 [node name="Main_level" type="Node2D"]
 
@@ -222,14 +222,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 586.0
-offset_top = 19.0
-offset_right = 764.0
-offset_bottom = 69.0
+offset_left = 400.0
+offset_top = 8.0
+offset_right = 578.0
+offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.6, 1.6)
-theme_override_font_sizes/font_size = 10
+theme = ExtResource("10_mcwy2")
+text = "score"
 script = ExtResource("2_71bqw")
 
 [node name="helth" type="Label" parent="."]
@@ -238,7 +239,3 @@ offset_bottom = 23.0
 scale = Vector2(1.6, 1.6)
 theme_override_font_sizes/font_size = 10
 script = ExtResource("3_5q0sq")
-
-[node name="TextScoreSmall" type="Sprite2D" parent="."]
-position = Vector2(520, 29)
-texture = ExtResource("12_mcwy2")

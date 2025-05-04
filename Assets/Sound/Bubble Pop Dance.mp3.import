@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddmhhm4lt2ip8"
+path="res://.godot/imported/Bubble Pop Dance.mp3-5cf85b408857dbde5845ffe561b2a8db.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Bubble Pop Dance.mp3"
+dest_files=["res://.godot/imported/Bubble Pop Dance.mp3-5cf85b408857dbde5845ffe561b2a8db.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
