@@ -15,7 +15,7 @@ func _ready() -> void:
 func spawn_targets():
 	if get_child_count() >= max_spawn_count:
 		return
-	timer.wait_time = randf_range(minimum_time_to_spawn, 3)
+	timer.wait_time = randf_range(minimum_time_to_spawn, 2)
 
 	var target_instance = targets.instantiate()
 	add_child(target_instance)
@@ -33,7 +33,7 @@ func spawn_targets():
 func _on_timer_timeout() -> void:
 	spawn_targets()
 
-
+# TTS = Time to spawn
 func _on_tts_timer_timeout() -> void:
 	minimum_time_to_spawn -= 0.1
 	max_spawn_count += 1

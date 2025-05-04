@@ -5,14 +5,24 @@ extends Area2D
 
 @export var minimum_speed: int = 100
 @export var maximum_speed: int = 500
+
+
+
+@onready var sfx_manager: AudioStreamPlayer = $sfx_manager
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var BadDuckTimer: Timer = $BadDuckTimer
 @onready var ttk_timer: Timer = $TTKTimer
 @onready var shoot_mark: Sprite2D = $ShootMark
 
 
+var sfx:= [
+preload("res://Assets/Sound/SFX/gun-shot-1-7069.mp3"), 
+preload("res://Assets/Sound/SFX/duck-quacking-37392.mp3"),
+preload("res://Assets/Sound/SFX/duck-quack-112941.mp3")
+]
 
-var sprites: = [preload("res://Assets/PNG/Objects/target_red3_outline.png"),
+var sprites: = [
+preload("res://Assets/PNG/Objects/target_red3_outline.png"),
 preload("res://Assets/PNG/Objects/duck_outline_yellow.png"),
 preload("res://Assets/PNG/Objects/bad_duck.png")
 ]
@@ -21,7 +31,7 @@ var starting_pos:= Vector2(0,0)
 var speed = randi_range(minimum_speed, maximum_speed)
 var score_value: int
 var damege:= 1
-
+var alive: bool = true
 
 
 func _ready() -> void:
@@ -46,7 +56,7 @@ func _ready() -> void:
 		3:
 			$Sprite2D.texture = sprites[1]
 			BadDuckTimer.one_shot = true
-			BadDuckTimer.wait_time = randf_range(0.7, 4)
+			BadDuckTimer.wait_time = randf_range(3, 6)
 			BadDuckTimer.start()
 			var stike = get_node("StickWoodFixedOutline")
 			stike.position.y += -20 
@@ -70,11 +80,27 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_index: int):
 	)
 	
 	if event_is_mouse_click:
-		if target_type == 1:
+		sfx_manager.stream = sfx[0]
+		sfx_manager.play()
+		
+		if target_type == 1 or target_type == 3 and BadDuckTimer.time_left > 0.1:
 			Global.health -= damege
 			print("dmg on hiting duck")
-		queue_free()
+			sfx_manager.stream = sfx[1]
+			sfx_manager.volume_db = 10
+			sfx_manager.play()
+			if ttk_timer:
+				ttk_timer.stop()
+
 		Global.score += score_value
+		alive = false
+		visible = false
+		await get_tree().create_timer(3).timeout
+		sfx_manager.volume_db = -15
+		queue_free()
+
+
+
 
 
 
@@ -96,11 +122,17 @@ func movement_handle(delta):
 
 
 func _on_bad_duck_timer_timeout() -> void:
+	
 	sprite_2d.texture = sprites[2]
 	sprite_2d.scale = Vector2(0.31, 0.31)
 	ttk_timer.start(randf_range(1, 3))
 	print("TTK TIMER STARTED")
 	shoot_mark.visible = true
+	sfx_manager.stream = sfx[2]
+	sfx_manager.volume_db = 30
+	sfx_manager.play()
+	sfx_manager.volume_db = -8
+	
 	var tween = create_tween()
 	var original_scale = sprite_2d.scale
 	tween.tween_property(sprite_2d, "scale", Vector2(1.2,1.2), 0.1)
@@ -115,6 +147,14 @@ func _on_bad_duck_timer_timeout() -> void:
 
 	
 func _on_ttk_timer_timeout() -> void:
+	if alive:
 		Global.health -= damege
+	
+		sfx_manager.stream = sfx[0]
+		sfx_manager.play()
+		await get_tree().create_timer(1).timeout
 		queue_free()
 		print("dmg")
+		
+	else:
+		ttk_timer.stop()

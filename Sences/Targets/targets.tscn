@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://beei5hfmy1wrw"]
+[gd_scene load_steps=7 format=3 uid="uid://beei5hfmy1wrw"]
 
 [ext_resource type="Script" uid="uid://cu81u36516mj7" path="res://Sences/Targets/targets.gd" id="1_l8c2i"]
 [ext_resource type="Texture2D" uid="uid://bdxigmte87ea8" path="res://Assets/PNG/Objects/stick_wood_outline.png" id="2_xm0lx"]
 [ext_resource type="Texture2D" uid="uid://cojlv86n2kemb" path="res://Assets/PNG/Objects/target_red3_outline.png" id="3_xm0lx"]
 [ext_resource type="Texture2D" uid="uid://qhnmp0hxdj2g" path="res://Assets/PNG/HUD/crosshair_red_small.png" id="4_4cba4"]
+[ext_resource type="AudioStream" uid="uid://cjv7sx0n7cw1w" path="res://Assets/Sound/SFX/gun-shot-1-7069.mp3" id="5_eew7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a525t"]
 radius = 72.0278
@@ -34,6 +35,12 @@ one_shot = true
 visible = false
 scale = Vector2(2.64286, 2.64286)
 texture = ExtResource("4_4cba4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="sfx_manager" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_eew7j")
+volume_db = -15.0
 
 [connection signal="timeout" from="BadDuckTimer" to="." method="_on_bad_duck_timer_timeout"]
 [connection signal="timeout" from="TTKTimer" to="." method="_on_ttk_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://duk4lw7h4m268"]
+[gd_scene load_steps=14 format=3 uid="uid://duk4lw7h4m268"]
 
 [ext_resource type="PackedScene" uid="uid://3bhfc6unw6xw" path="res://Sences/target_spawner.tscn" id="1_71bqw"]
 [ext_resource type="Script" uid="uid://d1elq8t0n6vmf" path="res://Sences/Main_level/main_level.gd" id="1_y1o52"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://deuwydtwbwmtb" path="res://Assets/PNG/Stall/curtain_straight.png" id="7_mb21o"]
 [ext_resource type="Theme" uid="uid://rojwetiqfdcx" path="res://new_theme.tres" id="10_mcwy2"]
 [ext_resource type="Texture2D" uid="uid://c6pwu1h0sfpjb" path="res://Assets/PNG/Stall/curtain_rope.png" id="11_4yvw5"]
+[ext_resource type="AudioStream" uid="uid://bpdw2gr2aab36" path="res://Assets/Sound/Whimsy Run.mp3" id="13_y1o52"]
 
 [node name="Main_level" type="Node2D"]
 script = ExtResource("1_y1o52")
@@ -238,3 +239,10 @@ theme = ExtResource("10_mcwy2")
 text = "Health
 "
 script = ExtResource("3_5q0sq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_y1o52")
+volume_db = -8.0
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
