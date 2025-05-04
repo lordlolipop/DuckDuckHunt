@@ -1,6 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://duk4lw7h4m268"]
 
 [ext_resource type="PackedScene" uid="uid://3bhfc6unw6xw" path="res://Sences/target_spawner.tscn" id="1_71bqw"]
+[ext_resource type="Script" uid="uid://d1elq8t0n6vmf" path="res://Sences/Main_level/main_level.gd" id="1_y1o52"]
 [ext_resource type="Script" uid="uid://dfm85vx5s7wdi" path="res://Sences/Main_level/score.gd" id="2_71bqw"]
 [ext_resource type="Texture2D" uid="uid://dt0qonl0lnwvp" path="res://Assets/PNG/Stall/grass2.png" id="2_eqeco"]
 [ext_resource type="Script" uid="uid://cgclu482hkn8y" path="res://Sences/Main_level/helth.gd" id="3_5q0sq"]
@@ -9,11 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://vyk8u31cj8pw" path="res://Assets/PNG/Stall/curtain_top.png" id="5_xywcn"]
 [ext_resource type="Texture2D" uid="uid://b6lf7yox8lspp" path="res://Assets/PNG/Stall/curtain.png" id="6_eqeco"]
 [ext_resource type="Texture2D" uid="uid://deuwydtwbwmtb" path="res://Assets/PNG/Stall/curtain_straight.png" id="7_mb21o"]
-[ext_resource type="Texture2D" uid="uid://bqc6h6nmoa21b" path="res://Assets/Sample.png" id="10_mb21o"]
 [ext_resource type="Theme" uid="uid://rojwetiqfdcx" path="res://new_theme.tres" id="10_mcwy2"]
 [ext_resource type="Texture2D" uid="uid://c6pwu1h0sfpjb" path="res://Assets/PNG/Stall/curtain_rope.png" id="11_4yvw5"]
 
 [node name="Main_level" type="Node2D"]
+script = ExtResource("1_y1o52")
 
 [node name="backround" type="CanvasGroup" parent="."]
 scale = Vector2(1.6, 1.6)
@@ -204,10 +205,6 @@ texture = ExtResource("7_mb21o")
 position = Vector2(352, 32)
 texture = ExtResource("7_mb21o")
 
-[node name="Sample" type="Sprite2D" parent="Curtains"]
-position = Vector2(1990, 321)
-texture = ExtResource("10_mb21o")
-
 [node name="CurtainRope" type="Sprite2D" parent="Curtains"]
 position = Vector2(7, 227)
 texture = ExtResource("11_4yvw5")
@@ -222,10 +219,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 400.0
-offset_top = 8.0
-offset_right = 578.0
-offset_bottom = 61.0
+offset_left = 534.0
+offset_top = -2.0
+offset_right = 712.0
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.6, 1.6)
@@ -237,5 +234,7 @@ script = ExtResource("2_71bqw")
 offset_right = 40.0
 offset_bottom = 23.0
 scale = Vector2(1.6, 1.6)
-theme_override_font_sizes/font_size = 10
+theme = ExtResource("10_mcwy2")
+text = "Health
+"
 script = ExtResource("3_5q0sq")
